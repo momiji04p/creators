@@ -1,15 +1,14 @@
 <div class="row">
 	<div class="col-3">
 		<h2>User info</h2>
-		<%= attachment_image_tag current_user, :profile_image, :fill, '200', '200', fallback: "no_image.jpg" %>
+		<%= attachment_image_tag current_user, :image, :fill, '200', '200', fallback: "no_image.jpg" %>
 			<table class="table">
 	            <tbody>
 	              <tr>
-	                <th>name</th>
-	                <th><%= @user.name %></th>
+	                <th><%= @user.account_name %></th>
 	              </tr>
 	              <tr>
-	                <th>introduction</th>
+	                <th>自己紹介</th>
 	                <th><%= @user.introduction %></th>
 	              </tr>
 	            </tbody>
@@ -17,7 +16,53 @@
 
 	</div>
 
+<!--タブメニュー-->
 	<div class="col-6">
+		<div>
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li class="active" role="presentation">
+		      <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">画像</a>
+		    </li>
+		    
+		    <li role="presentation">
+		      <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">動画</a>
+		    </li>
+		    
+		    <li role="presentation">
+		      <a aria-controls="tab_c" data-toggle="tab" href="#tab_c" role="tab">書籍</a>
+		    </li>
+		    
+		    <li role="presentation">
+		      <a aria-controls="tab_d" data-toggle="tab" href="#tab_c" role="tab">ゲーム</a>
+		    </li>
+		  </ul>
+		
+			<div class="tab-content">
+			    <div class="tab-pane active" id="tab_a" role="tabpanel">
+			      <p>
+			        タブAだよ
+			      </p>
+			    </div>
+			    
+			    <div class="tab-pane" id="tab_b" role="tabpanel">
+			      <p>
+			        タブBです
+			      </p>
+			    </div>
+			    
+			    <div class="tab-pane" id="tab_c" role="tabpanel">
+			      <p>
+			        タブC!!
+			      </p>
+			    </div>
+			    
+			    <div class="tab-pane" id="tab_d" role="tabpanel">
+			      <p>
+			        タブC!!
+			      </p>
+			    </div>
+			</div>
+		</div>
 	</div>
 
 	<div class="col-3">

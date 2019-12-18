@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-3">
+    </div>
+    
+    <div class="col-6">
+        <%= form_for(@image) do |f| %>
+            <h3>タイトル</h3>
+                <%= f.text_field :title %>
+                
+            <h3>ジャンル</h3>
+                <%= f.select :genre, [["写真", "写真"], ["イラスト", "イラスト"], ["その他", "その他"]] %>
+                
+            <h3>画像</h3>
+                <%= attachment_image_tag @image,:image, height: '500', width: '500', class: "profile-thumb", fallback: "no_image.jpg" %>
+                <%= f.attachment_field :image %>
+            
+            <h3>説明</h3>
+                <%= f.text_area :information, size: "20x15", class: "form-control" %>
+                
+            <h3><%= f.submit "更新する" %>
+                <%= link_to "削除", image_path(@image.id), method: :delete, "date-confirm" => "本当に削除しますか？" %>
+            </h3>
+        <% end %>
+    </div>
+    
+    <div class="col-3">
+    </div>
+</div>

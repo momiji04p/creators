@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-3">
+    </div>
+    
+    <div class="col-6">
+        <%= @image.title %>
+        <%= @image.genre %>
+        <%= @image.user.account_name %>
+        <%= attachment_image_tag @image,:image, height: '500', width: '500', class: "profile-thumb", fallback: "no_image.jpg" %>
+        <%= @image.information %>
+        <%= link_to "画像詳細の編集", edit_image_path(@image.id) %>
+    </div>
+    
+    <div class="col-3">
+    </div>
+</div>
