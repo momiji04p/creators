@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
            # acts_as_paranoid
 
-  attachment :profile_image
-  validates :name, presence: true, length: {in: 2..20}
+  attachment :image
+  validates :account_name, presence: true, length: {in: 2..20}
+  validates :introduction, length: {maximum: 50}
 end
+

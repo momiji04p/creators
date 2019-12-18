@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'tops/index'
-  # root :to =>'tops/about'
+  root 'tops#about'
   devise_for :admins
   devise_for :users
   get 'admin/videos'
