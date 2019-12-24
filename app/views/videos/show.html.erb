@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-3">
+    </div>
+    
+    <div class="col-6">
+        <div class="video">
+            <center>
+                <p>
+                    <%= @video.title %>
+                </p>
+                
+                <p>
+                    <%= video_tag @video.video_url.to_s,loop: true, controls: true, width: 600, id: "mv" %>
+                </p>
+                
+                <p>ジャンル:
+                    <%= @video.genre %>
+                </p>
+                
+                <p>
+                    <%= @video.user.account_name %>
+                </p>
+                
+                <p>説明
+                    <%= @video.information %>
+                </p>
+                
+                <p>
+                    <%= link_to "動画の編集", edit_video_path(@video.id) %>
+                </p>
+            </center>
+        </div>
+    </div>
+    
+    <div class="col-3">
+    </div>
+</div>
+
+
+

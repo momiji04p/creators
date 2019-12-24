@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-3">
+    </div>
+    
+    <div class="col-6">
+        <%= form_for(@video) do |f| %>
+            <h3>タイトル</h3>
+                <%= f.text_field :title %>
+            
+            <h3>画像</h3>
+                <%= f.file_field :thumbnail %>
+                
+            <h3>ジャンル</h3>
+                <%= f.select :genre, [["アニメーション", "アニメーション"], ["トーク・コント", "トーク・コント"], ["教育", "教育"], ["ミュージック", "ミュージック"], ["メイク・ファッション", "メイク・ファッション"], ["料理", "料理"], ["その他", "その他"]] %>
+                
+            <h3>説明</h3>
+                <%= f.text_area :information, size: "20x15", class: "form-control" %>
+            
+            <h3><%= f.submit "更新する" %>
+                <%= link_to "削除", video_path(@video.id), method: :delete, "date-confirm" => "本当に削除しますか？" %>
+            </h3>
+        <% end %>
+    </div>
+    
+    <div class="col-3">
+    </div>
+</div>

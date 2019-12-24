@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     def index
-        @users =User.all
         @user = current_user
+        @images =Image.where("user_id", @user.id)
+        @videos =Video.where("user_id", @user.id)
     end
     
     def update
@@ -9,6 +10,14 @@ class UsersController < ApplicationController
       @user.update(user_params)
       redirect_to users_path(@user.id)
     end
+    
+    def edit
+      @user_image = User.new
+	  @user = User.find(params[:id])
+	  if @user.id != current_user.id
+	     redirect_to user_path(current_user)
+	  end
+	end
 
 private
     def user_params

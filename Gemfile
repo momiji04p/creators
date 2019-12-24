@@ -71,4 +71,5 @@ gem'bootstrap', '~> 4.1.1'
 gem'kaminari', '~> 0.17.0'
 gem'jquery-rails'
 gem 'carrierwave'
-gem "font-awesome-rails"
+# gem "font-awesome-rails"
+gem 'font-awesome-sass'
