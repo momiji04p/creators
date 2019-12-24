@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_054625) do
+ActiveRecord::Schema.define(version: 2019_12_22_104248) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 2019_12_20_054625) do
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "video_id"
+    t.integer "image_id"
+    t.index ["image_id"], name: "index_favorites_on_image_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["video_id"], name: "index_favorites_on_video_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -133,6 +139,12 @@ ActiveRecord::Schema.define(version: 2019_12_20_054625) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "video"
+    t.string "title"
+    t.string "account_name"
+    t.text "information"
+    t.string "thumbnail"
+    t.string "genre"
+    t.integer "user_id"
   end
 
 end

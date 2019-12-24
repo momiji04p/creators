@@ -10,6 +10,7 @@ class VideosController < ApplicationController
     
     def create
       @video = Video.new(video_params)
+      @video.user = current_user
       if @video.save
           redirect_to videos_path
           flash[:success] = '投稿しました'
@@ -19,8 +20,28 @@ class VideosController < ApplicationController
       end
     end
     
+    def show
+      @video =Video.find(params[:id])
+    end
+    
+    def edit
+      @video = Video.find(params[:id])
+    end
+    
+    def update
+      @video =Video.find(params[:id])
+      @video.update(video_params)
+      redirect_to video_path(@video.id)
+    end
+    
+    def destroy
+      @video = Video.find(params[:id])
+      @video.destroy
+      redirect_to videos_path
+    end
+    
 private
     def video_params
-      params.require(:video).permit(:title, :account_name, :information, :video)
+      params.require(:video).permit(:thumbnail, :title, :genre, :information, :video, users:[:account_name])
     end
 end

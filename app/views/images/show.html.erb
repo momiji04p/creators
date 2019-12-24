@@ -3,12 +3,43 @@
     </div>
     
     <div class="col-6">
-        <%= @image.title %>
-        <%= @image.genre %>
-        <%= @image.user.account_name %>
-        <%= attachment_image_tag @image,:image, height: '500', width: '500', class: "profile-thumb", fallback: "no_image.jpg" %>
-        <%= @image.information %>
-        <%= link_to "画像詳細の編集", edit_image_path(@image.id) %>
+        <div class="image">
+            <center>
+                <% if !Favorite.exists?(user_id:current_user.id,image_id:@image.id) %>
+    <%= link_to image_favorite_path(@image),method: :post do  %>
+    <i class="far fa-star"></i>
+    <% end %>
+    
+    <% else %>
+    <%= link_to image_favorite_path(@image),method: :delete do %>
+    <i class="fas fa-star"></i>
+    <% end %>
+<% end %>
+                <p>
+                    <%= @image.title %>
+                </p>
+                
+                <p>
+                    <%= attachment_image_tag @image,:image, height: '500', width: '500', class: "profile-thumb", fallback: "no_image.jpg" %>
+                </p>
+                
+                <p>ジャンル:
+                    <%= @image.genre %>
+                </p>
+                
+                <p>
+                    <%= @image.user.account_name %>
+                </p>
+                
+                <p>説明
+                    <%= @image.information %>
+                </p>
+                
+                <p>
+                    <%= link_to "画像詳細の編集", edit_image_path(@image.id) %>
+                </p>
+            </center>
+        </div>
     </div>
     
     <div class="col-3">

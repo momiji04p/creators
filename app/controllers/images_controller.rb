@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
     
     def create
       @image = Image.new(image_params)
-      @image.user_id = current_user.id
+      @image.user = current_user
       if @image.save
         redirect_to images_path
         flash[:success] = '投稿しました'

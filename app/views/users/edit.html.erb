@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-3">
+    </div>
+    
+    <div class="col-6">
+        <h2>ユーザー情報編集</h2>
+        <%= form_for(@user) do |f| %>
+            <div class="col-4">
+              名前
+            </div>
+    
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+    
+            <div class="col-4">
+              フリガナ
+            </div>
+    
+            <div class="col-8">
+              <%= f.text_field :kana_name %>
+            </div>
+    
+            <div class="col-4">
+              アカウント名
+            </div>
+    
+            <div class="col-8">
+              <%= f.text_field :account_name %>
+            </div>
+    
+            <div class="col-4">
+              電話
+            </div>
+    
+            <div class="col-8">
+              <%= f.text_field :phone_number %>
+            </div>
+    
+            <div class="col-4">
+              メールアドレス
+            </div>
+    
+            <div class="col-8">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            
+            <div class="field">
+            	<label for="user_image">画像</label>
+            	<%= f.attachment_field :image, place_holder: "プロフィール画像" %>
+            </div>
+        
+            <div class="field">
+            	<label for="user_introduction">自己紹介</label>
+            	<%= f.text_area :introduction, size: "5x5", class: "form-control" %>
+            </div>
+            
+            <div class="actions">
+            	 <%= f.submit 'Update User' %>
+        <% end %>
+            </div>
+    </div>
+    
+    <div class="col-3">
+    </div>
+</div>

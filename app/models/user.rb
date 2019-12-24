@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
            # acts_as_paranoid
-
   attachment :image
   validates :account_name, presence: true, length: {in: 2..20}
   validates :introduction, length: {maximum: 50}
+  has_many :favorites
+  has_many :images, through: :favorites
+  has_many :videos, through: :favorites
 end
 

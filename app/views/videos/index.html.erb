@@ -1,7 +1,12 @@
 <div class="row">
     <div class="col-12">
-		<h4 class="image_list">画像一覧</h4>
+		<h4 class="image_list">動画一覧</h4>
 		    <% @videos.each do |video| %>
-		    <%= video_tag video.video_url.to_s,loop: true, controls: true, width: 550, id: "mv" %>
+    		    <% if video.thumbnail.present? %>
+        		    <%= link_to video_path(video.id) do %>
+        		     <%= image_tag video.thumbnail.url, height: '240', width: '240' %>
+        		    <% end %>
+    		    <% end %>
 		    <% end %>
     </div>
+</div>

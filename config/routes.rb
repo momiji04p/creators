@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   resources :relationships
   resources :reports
   resources :reviews
+
+  resources :images do
+      resource :favorite, only: [:create, :destroy]
+  end
 end
