@@ -1,0 +1,2 @@
+module VideosFavoritesHelper
+end
