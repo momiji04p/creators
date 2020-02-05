@@ -20,7 +20,7 @@
                 <p>
                     <%= @image.user.account_name %>
                 </p>
-                
+
                 <% if !Favorite.exists?(user_id:current_user.id,image_id:@image.id) %>
     <%= link_to image_favorite_path(@image),method: :post do  %>
     <i class="far fa-star"></i>
