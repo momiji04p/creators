@@ -1,0 +1,2 @@
+class VideosFavoritesController < ApplicationController
+end
