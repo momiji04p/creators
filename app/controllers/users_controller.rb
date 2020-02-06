@@ -3,6 +3,8 @@ class UsersController < ApplicationController
         @user = current_user
         @images =Image.where("user_id", @user.id)
         @videos =Video.where("user_id", @user.id)
+        @image_pages = Image.page(params[:page]).per(10)
+        @video_pages =Video.page(params[:page]).per(10)
     end
     
     def update
