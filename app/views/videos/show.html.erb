@@ -24,10 +24,12 @@
                 <p>説明
                     <%= @video.information %>
                 </p>
-                
+
+            <% if current_user == @video.user %>
                 <p>
                     <%= link_to "動画の編集", edit_video_path(@video.id) %>
                 </p>
+            <% end %>
             </center>
         </div>
     </div>
