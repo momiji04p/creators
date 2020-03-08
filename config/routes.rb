@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'tops#index'
   devise_for :admins
   devise_for :users
-  get 'admin/videos'
+  get 'admin/top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
   resources :images
@@ -16,5 +16,9 @@ Rails.application.routes.draw do
 
   resources :images do
       resource :favorite, only: [:create, :destroy]
+  end
+  
+  resources :videos do
+      resource :videos_favorite, only: [:create, :destroy]
   end
 end

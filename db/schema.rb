@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_104248) do
+ActiveRecord::Schema.define(version: 2020_02_07_155237) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -145,6 +145,13 @@ ActiveRecord::Schema.define(version: 2019_12_22_104248) do
     t.string "thumbnail"
     t.string "genre"
     t.integer "user_id"
+  end
+
+  create_table "videos_favorites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "video_id"
   end
 
 end

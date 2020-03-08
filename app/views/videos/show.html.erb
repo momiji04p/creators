@@ -21,6 +21,17 @@
                     <%= @video.user.account_name %>
                 </p>
                 
+                <% if !Favorite.exists?(user_id:current_user.id,video_id:@video.id) %>
+                    <%= link_to video_videos_favorite_path(@video),method: :post do  %>
+                    <i class="far fa-star"></i>
+                    <% end %>
+                    
+                    <% else %>
+                    <%= link_to video_videos_favorite_path(@video),method: :delete do %>
+                    <i class="fas fa-star"></i>
+                    <% end %>
+                <% end %>
+                
                 <p>説明
                     <%= @video.information %>
                 </p>

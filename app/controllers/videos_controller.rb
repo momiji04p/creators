@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_action :authenticate_user!,{only:[:new,:show,:edit]}
     def index
       @videos = Video.all
       @video_pages =Video.page(params[:page]).per(20)
