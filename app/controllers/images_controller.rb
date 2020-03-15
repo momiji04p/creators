@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :authenticate_user!,{only:[:new,:show,:edit]}
     def index
       @images = Image.all
       @image_pages = Image.page(params[:page]).per(20)
