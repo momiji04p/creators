@@ -73,3 +73,7 @@ gem'jquery-rails'
 gem 'carrierwave'
 # gem "font-awesome-rails"
 gem 'font-awesome-sass'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
